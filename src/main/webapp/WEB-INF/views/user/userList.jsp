@@ -25,12 +25,12 @@
 	</div>	
 	
 	<table id="contentTable" class="table table-striped table-bordered table-condensed">
-		<thead><tr><th><tags:sortable name="userName">任务</tags:sortable></th><th>管理</th></tr></thead>
+		<thead><tr><th><tags:sortable name="userName">用户名</tags:sortable></th><th>邮箱</th><th>操作</th></tr></thead>
 		<tbody>
 		<c:forEach items="${page.content}" var="user">
 			<tr>
 				<td><a href="${ctx}/user/update/${user.id}">${user.userName}</a></td>
-				<td><a href="${ctx}/user/update/${user.id}">${user.password}</a></td>
+				<td>${user.email}</td>
 				<td>
 					<div class="controls">
 					  <a href="${ctx}/user/delete/${user.id}"><i class="icon-edit"></i></a>

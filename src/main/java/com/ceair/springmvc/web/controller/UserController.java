@@ -6,6 +6,7 @@ package com.ceair.springmvc.web.controller;
 import javax.servlet.ServletRequest;
 import javax.validation.Valid;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -59,7 +60,7 @@ public class UserController {
 			}
 		});
 		
-		return "user/list";
+		return "user/userList";
 		
 	}
 	
@@ -72,7 +73,7 @@ public class UserController {
 
 	@RequestMapping(value = "create", method = RequestMethod.POST)
 	public String create(@Valid User newUser, RedirectAttributes redirectAttributes) {
-
+	    userService.doAddUser(newUser);
 		redirectAttributes.addFlashAttribute("message", "创建用户成功");
 		return "redirect:/user/";
 	}
@@ -87,14 +88,18 @@ public class UserController {
 
 	@RequestMapping(value = "update", method = RequestMethod.POST)
 	public String update(@Valid User user, RedirectAttributes redirectAttributes) {
-//		userService.updateUser(user);
+	    
+	    User oldUser =userService.getUser(user.getId());
+	    BeanUtils.copyProperties(user, oldUser);
+	    userService.doUpdateUser(oldUser);
+	    
 		redirectAttributes.addFlashAttribute("message", "更新用户成功");
 		return "redirect:/user/";
 	}
 
-	@RequestMapping(value = "delete/{id}")
+	@RequestMapping(value = "delete/{id}" ,method=RequestMethod.GET)
 	public String delete(@PathVariable("id") Long id, RedirectAttributes redirectAttributes) {
-//		userService.deleteUser(id);
+		userService.doDeleteUser(id);
 		redirectAttributes.addFlashAttribute("message", "删除用户成功");
 		return "redirect:/user/";
 	}

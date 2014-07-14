@@ -47,6 +47,10 @@ public class UserService {
 		
 	}
 	
+	public void doDeleteUser(Long id) {
+	    userDao.delete(id);
+	}
+	
 	public Page<User> queryUser(final UserSearchDto userSearchDto,Pageable pageRequest) {
 		LOG.debug("Search page users");
 		return userDao.findAll(SimpleSpecifications.bySearchDto(userSearchDto, User.class), pageRequest);
