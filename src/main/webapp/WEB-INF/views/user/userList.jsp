@@ -9,7 +9,7 @@
 </head>
 
 <body>
-	<h1>用户管理<a href="${ctx}/user/create"><i class="icon-plus"></i></a></h1>
+	<h1>用户管理<a data-toggle="tooltip" title="添加用户"  href="${ctx}/user/create"><i class="icon-plus"></i></a></h1>
 	<c:if test="${not empty message}">
 		<div id="message" class="alert alert-success"><button data-dismiss="alert" class="close">×</button>${message}</div>
 	</c:if>
