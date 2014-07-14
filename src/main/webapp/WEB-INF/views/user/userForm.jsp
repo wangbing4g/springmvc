@@ -20,7 +20,7 @@
 			<div class="control-group">
 				<label for="user_email" class="control-label">邮箱:</label>
 				<div class="controls">
-					<input type="text" id="user_email" name="email"  value="${user.userName}" class="input-large email required" minlength="3"/>
+					<input type="text" id="user_email" name="email"  value="${user.email}" class="input-large email required" minlength="3"/>
 				</div>
 			</div>
 			<div class="form-actions">

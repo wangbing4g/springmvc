@@ -89,10 +89,7 @@ public class UserController {
 	@RequestMapping(value = "update", method = RequestMethod.POST)
 	public String update(@Valid User user, RedirectAttributes redirectAttributes) {
 	    
-	    User oldUser =userService.getUser(user.getId());
-	    BeanUtils.copyProperties(user, oldUser);
-	    userService.doUpdateUser(oldUser);
-	    
+	    userService.doUpdateUser(user);
 		redirectAttributes.addFlashAttribute("message", "更新用户成功");
 		return "redirect:/user/";
 	}

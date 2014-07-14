@@ -9,7 +9,7 @@
 </head>
 
 <body>
-	<h1>用户管理</h1>
+	<h1>用户管理<a href="${ctx}/user/create"><i class="icon-plus"></i></a></h1>
 	<c:if test="${not empty message}">
 		<div id="message" class="alert alert-success"><button data-dismiss="alert" class="close">×</button>${message}</div>
 	</c:if>
@@ -33,7 +33,7 @@
 				<td>${user.email}</td>
 				<td>
 					<div class="controls">
-					  <a href="${ctx}/user/delete/${user.id}"><i class="icon-edit"></i></a>
+					  <a href="${ctx}/user/update/${user.id}"><i class="icon-edit"></i></a>
 					  <a href="${ctx}/user/delete/${user.id}"><i class="icon-remove"></i></a>
 					</div>
 				</td>
