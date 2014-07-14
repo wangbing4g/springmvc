@@ -8,7 +8,6 @@
 	</excludes>
 	
 	<decorator name="default" page="default.jsp">
-		<pattern>/home</pattern>
-		<pattern>/**/list</pattern>
+		<pattern>/*</pattern>
 	</decorator>
 </decorators>
